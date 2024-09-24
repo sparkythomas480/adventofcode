@@ -2,7 +2,7 @@
 
 public interface IScratchCard
 {
-    int NumWinners();
+    uint NumWinners();
 }
 
 public sealed class ScratchCard : IScratchCard
@@ -17,8 +17,21 @@ public sealed class ScratchCard : IScratchCard
         this.actualNumbers = actualNumbers.ToArray();
     }
 
-    int IScratchCard.NumWinners()
+    uint IScratchCard.NumWinners()
     {
-        return this.actualNumbers.Count(n => Array.BinarySearch(this.winningNumbers, n) >= 0);
+        return (uint)this.actualNumbers.Count(n => Array.BinarySearch(this.winningNumbers, n) >= 0);
+    }
+}
+
+public interface IScratchCardScorer
+{
+    uint Score(IScratchCard scratchCard);
+}
+
+public sealed class ScratchCardScorer : IScratchCardScorer
+{
+    uint IScratchCardScorer.Score(IScratchCard scratchCard)
+    {
+        throw new NotImplementedException();
     }
 }
