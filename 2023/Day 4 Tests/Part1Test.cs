@@ -37,6 +37,6 @@ public class ScratchCardTests
     public void TestNumWinnersReturnsCorrectCountWhenActualNumbersInWinningNumbers()
     {
         var scratchCard = (IScratchCard)new ScratchCard(new int[] {10, 5, 30, 26, 25, 29, 106} , new int[] {25, 26, 106, 95, 66} );
-        Assert.AreEqual(0, scratchCard.NumWinners());
+        Assert.AreEqual(3, scratchCard.NumWinners());
     }
 }

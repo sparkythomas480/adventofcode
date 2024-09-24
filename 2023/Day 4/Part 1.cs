@@ -19,7 +19,6 @@ public sealed class ScratchCard : IScratchCard
 
     int IScratchCard.NumWinners()
     {
-        throw new NotImplementedException();
-        // return this.actualNumbers.Count(n => Array.BinarySearch(this.winningNumbers, n) >= 0);
+        return this.actualNumbers.Count(n => Array.BinarySearch(this.winningNumbers, n) >= 0);
     }
 }
