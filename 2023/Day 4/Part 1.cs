@@ -1,9 +1,25 @@
 ﻿namespace AdventOfCode.Y2023.Day4;
 
-public class Part1
+public interface IScratchCard
 {
-    public int Add(int m, int n)
+    int NumWinners();
+}
+
+public sealed class ScratchCard : IScratchCard
+{
+    private readonly int[] winningNumbers;
+    private readonly int[] actualNumbers;
+
+    public ScratchCard(IEnumerable<int> winningNumbers, IEnumerable<int> actualNumbers)
     {
-        return m + n;
+        this.winningNumbers = winningNumbers.ToArray();
+        Array.Sort(this.winningNumbers);
+        this.actualNumbers = actualNumbers.ToArray();
+    }
+
+    int IScratchCard.NumWinners()
+    {
+        throw new NotImplementedException();
+        // return this.actualNumbers.Count(n => Array.BinarySearch(this.winningNumbers, n) >= 0);
     }
 }
