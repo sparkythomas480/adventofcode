@@ -32,6 +32,7 @@ public sealed class ScratchCardScorer : IScratchCardScorer
 {
     uint IScratchCardScorer.Score(IScratchCard scratchCard)
     {
-        throw new NotImplementedException();
+        var numWinners = scratchCard.NumWinners();
+        return numWinners == 0u ? 0u : (1u << (int)numWinners - 1);
     }
 }

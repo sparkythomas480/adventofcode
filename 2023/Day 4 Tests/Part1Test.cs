@@ -60,7 +60,7 @@ public class ScratchCardScorerTests
         var scratchCardScorer = (IScratchCardScorer)new ScratchCardScorer();
         var mock = new Moq.Mock<IScratchCard>();
         mock.Setup(scratchCard => scratchCard.NumWinners()).Returns(1);
-        Assert.AreEqual(0u, scratchCardScorer.Score(mock.Object));
+        Assert.AreEqual(1u, scratchCardScorer.Score(mock.Object));
     }
 
     [TestMethod]
@@ -69,6 +69,6 @@ public class ScratchCardScorerTests
         var scratchCardScorer = (IScratchCardScorer)new ScratchCardScorer();
         var mock = new Moq.Mock<IScratchCard>();
         mock.Setup(scratchCard => scratchCard.NumWinners()).Returns(5);
-        Assert.AreEqual(0u, scratchCardScorer.Score(mock.Object));
+        Assert.AreEqual(16u, scratchCardScorer.Score(mock.Object));
     }
 }
